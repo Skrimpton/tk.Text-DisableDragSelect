@@ -56,7 +56,6 @@ Point being: *something* happend which affected xorg, and did so in a way that `
 # CODE
 ```python
 import tkinter as tk
-# from tkinter import ttk
 import signal
 
 class Window(tk.Frame):
