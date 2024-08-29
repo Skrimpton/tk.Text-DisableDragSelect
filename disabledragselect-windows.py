@@ -1,5 +1,4 @@
 import tkinter as tk
-# from tkinter import ttk
 import signal
 
 class Window(tk.Frame):
