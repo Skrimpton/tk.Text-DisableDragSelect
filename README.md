@@ -13,7 +13,7 @@ A caveat of ```grab_set``` is that the object being grabbed has to be registered
 
 ```grab_set``` effects window manager behaviour in that mouse and keyboard events are handled and redirecred, potentially on a "global" scale.
 
-It cannot be unset after tk() destruction[³](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---obviously-why-did-i-even-try)
+It cannot be released after tk() destruction[³](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---obviously-why-did-i-even-try)
 
 So for some delusion of safety I bind both window ```protocol("WM_DELETE_WINDOW")```
 <br>and  ::SIGINT:: to at least make sure ```grab_release``` is called/requested (on user-interraction) before exiting
