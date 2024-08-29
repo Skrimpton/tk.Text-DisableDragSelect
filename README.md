@@ -15,8 +15,8 @@ A caveat of ```grab_set``` is that the object being grabbed has to be registered
 
 It cannot be released after Tk() destruction[³](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---obviously-why-did-i-even-try)
 
-So for some delusion of safety I bind both window ```protocol("WM_DELETE_WINDOW")```
-<br>and  ::SIGINT:: to at least make sure ```grab_release``` is called/requested (on user-interraction) before exiting
+So for some delusion of safety I bind both ```protocol("WM_DELETE_WINDOW")```
+<br>and ```::SIGINT::``` to at least make sure ```grab_release``` is called/requested (on user-interraction) before exiting
 
 I did experience once, on Linux - during testing
 <br>that left-clicks were not going through on anything in the KDE 5.27 panel or default-startmenu[⁴](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---kickoff)
