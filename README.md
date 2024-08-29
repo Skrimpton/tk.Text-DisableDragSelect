@@ -3,8 +3,9 @@ This principle also works if you skip the main tkinter.Frame a.k.a. "class Windo
 <br>and e.g. add both text and EVENTSINK as children of root.
 
 Using grab_set we can unfocus the text-widget and pass all events to the grabbed object
+<br>Any widget or window can be used: 
 
-Any widget or window can be used: https://dafarry.github.io/tkinterbook/widget.htm#tkinter.widget.grab_set-method
+https://dafarry.github.io/tkinterbook/widget.htm#tkinter.widget.grab_set-method
 <br>I chose frame because it can be completely visually hidden, also I imagine it's "low cost".
 
 ## SAFE HANDLING OF CRASHES MIGHT BE AN IMPORTANT TODO, CURRENTLY BEYOND THE SCOPE OF MY COMPETENCY
