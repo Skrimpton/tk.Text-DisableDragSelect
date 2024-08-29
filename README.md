@@ -3,9 +3,7 @@ This principle also works if you skip the main tkinter.Frame a.k.a. "class Windo
 <br>and e.g. add both text and EVENTSINK as children of root.
 
 Using grab_set we can unfocus the text-widget and pass all events to the grabbed object
-<br>Any widget or window can be used: 
-
-https://dafarry.github.io/tkinterbook/widget.htm#tkinter.widget.grab_set-method
+<br>Any widget or window can be used: https://dafarry.github.io/tkinterbook/widget.htm#tkinter.widget.grab_set-method
 <br>I chose frame because it can be completely visually hidden, also I imagine it's "low cost".
 
 ## SAFE HANDLING OF CRASHES MIGHT BE AN IMPORTANT TODO, CURRENTLY BEYOND THE SCOPE OF MY COMPETENCY
@@ -14,19 +12,19 @@ A caveat of ```grab_set``` is that the object being grabbed has to be registered
 <br>so it needs to be placed, packed or begriddled[²](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---widgetgrid)
 
 ```grab_set``` effects window manager behaviour in that mouse and keyboard events are handled and redirecred, potentially on a "global"-scale.
+
 It cannot be unset after tk() destruction[³](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---obviously-why-did-i-even-try)
 
 So for some delusion of safety I bind both window ```protocol("WM_DELETE_WINDOW")```
-and  ::SIGINT:: to at least make sure ```grab_release``` is called/requested (on user-interraction) before exiting
+<br>and  ::SIGINT:: to at least make sure ```grab_release``` is called/requested (on user-interraction) before exiting
 
 I did experience once, on Linux - during testing
-that left-clicks were not going through on anything in the KDE 5.27 panel or default-startmenu[⁴](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---kickoff)
+<br>that left-clicks were not going through on anything in the KDE 5.27 panel or default-startmenu[⁴](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---kickoff)
 
 In Kate[⁵](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---kde-text-editoride) clicks where partially going through[⁶](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---not-on-all-gui-elements-but-did-move-text-cursor-position-if-i-recall-correctly), but scrolling was not happening.
 
 A frustrated and impulsive restart fixed the problem, and I imagine logging out and back in would have aswell.
-
-There might have been something wrong with code at that time, changes have been made and forgotten.
+<br>There might have been something wrong with code at that time, changes have been made and forgotten.
 
 I was also using a mouse connected to a Windows 10 client, so it could have been something that happened in Barrier[⁷](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---httpsgithubcomdebaucheebarrier).
 
@@ -36,9 +34,10 @@ forced me to switch from the rock-solid Logitech G604 to an energy-drink themed 
 Point being: *something* happend which affected xorg, and did so in a way that ```grab_set``` explicitly does.
 <br>It did not occur before or after that one time.
 
+## Annotations
 ##### ¹)   ...or Window(), among friends
 
-##### ²)   widget.grid
+##### ²)   geometry managed using the ```.grid``` method
 
 ##### ³)   Obviously... why did I even try?
 
