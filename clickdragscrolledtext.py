@@ -103,12 +103,6 @@ class Window(tk.Frame):
         self.varScale           .set(gain)
         self.varScale           .trace_add("write",self.onSliderChanged)
         self.gain               = gain
-        #self.varallowClicks   = tk.BooleanVar()
-        #self.varclickDragScroll  = tk.BooleanVar()
-
-
-        # self.TEXT['state'] = 'disable'
-        # self.TEXT['exportselection'] = False
         self.build()
         self.bindem()
 
