@@ -10,18 +10,18 @@ Any widget or window can be used: https://dafarry.github.io/tkinterbook/widget.h
 ## SAFE HANDLING OF CRASHES MIGHT BE AN IMPORTANT TODO, CURRENTLY BEYOND THE SCOPE OF MY COMPETENCY
 
 A caveat of ```grab_set``` is that the object being grabbed has to be registered as visible, simply existing is not enough for tkinter
-<br>so it needs to be placed, packed or begriddled[²](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---widgetgrid)
+<br>so it needs to be placed, packed or begriddled[²](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---widgetgrid)
 
 ```grab_set``` effects window manager behaviour in that mouse and keyboard events are handled and redirecred, potentially on a "global"-scale.
-It cannot be unset after tk() destruction[³](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---obviously-why-did-i-even-try)
+It cannot be unset after tk() destruction[³](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---obviously-why-did-i-even-try)
 
 So for some delusion of safety I bind both window ```protocol("WM_DELETE_WINDOW")```
 and  ::SIGINT:: to at least make sure ```grab_release``` is called/requested (on user-interraction) before exiting
 
 I did experience once, on Linux - during testing
-that left-clicks were not going through on anything in the KDE 5.27 panel or default-startmenu[⁴](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---kickoff)
+that left-clicks were not going through on anything in the KDE 5.27 panel or default-startmenu[⁴](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---kickoff)
 
-In Kate[⁵](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---kde-text-editoride) clicks where partially going through[⁶](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---not-on-all-gui-elements-but-did-move-text-cursor-position-if-i-recall-correctly), but scrolling was not happening.
+In Kate[⁵](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---kde-text-editoride) clicks where partially going through[⁶](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---not-on-all-gui-elements-but-did-move-text-cursor-position-if-i-recall-correctly), but scrolling was not happening.
 
 A frustrated and impulsive restart fixed the problem, and I imagine logging out and back in would have aswell.
 
@@ -30,7 +30,7 @@ There might have been something wrong with code at that time, changes have been 
 I was also using a mouse connected to a Windows 10 client, so it could have been something that happened in Barrier[⁷](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---httpsgithubcomdebaucheebarrier).
 
 Or it could have been one of many bugs that have happened after unfortunate circumstances
-forced me to switch from the rock-solid Logitech G604 to an energy-drink themed abomination from Razer[⁸](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---in-all-fairness-its-mainly-the-horrible-software%E1%B5%83-the-mouse-is-decent-hardware)
+forced me to switch from the rock-solid Logitech G604 to an energy-drink themed abomination from Razer[⁸](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---in-all-fairness-its-mainly-the-horrible-software%E1%B5%83-the-mouse-is-decent-hardware)
 
 Point being: *something* happend which affected xorg, and did so in a way that ```grab_set``` explicitly does.
 <br>It did not occur before or after that one time.
@@ -49,7 +49,7 @@ Point being: *something* happend which affected xorg, and did so in a way that `
 
 ##### ⁷)   https://github.com/debauchee/barrier
 
-##### ⁸)   In all fairness: it's mainly the horrible software[ᵃ](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#%E1%B5%83---macro-functionality-as-an-optional-downloadable-plugin-prone-to-crashing--the-mouse-has-12-side-buttons-all-prebound-to-numbers-and-2-extra-top-buttons-bound-to-nothing--and-do-not-get-me-started-on-the-fact-that-they-want-me-to-create-and-log-into-an-account--to-unlock-all-features-of-my-mouse-driver-software), the mouse is decent hardware
+##### ⁸)   In all fairness: it's mainly the horrible software[ᵃ](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#%E1%B5%83---macro-functionality-as-an-optional-downloadable-plugin-prone-to-crashing--the-mouse-has-12-side-buttons-all-prebound-to-numbers-and-2-extra-top-buttons-bound-to-nothing--and-do-not-get-me-started-on-the-fact-that-they-want-me-to-create-and-log-into-an-account--to-unlock-all-features-of-my-mouse-driver-software), the mouse is decent hardware
 
 ##### ᵃ)   Macro-functionality as an optional downloadable plugin (prone to crashing)?<br>  The mouse has 12 side-buttons all prebound to numbers and 2 extra top buttons bound to nothing...<br>  And do not get me started on the fact that they want me to create and log into an account<br>  to "unlock all features" of my mouse-driver-software...!
 
