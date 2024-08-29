@@ -209,10 +209,12 @@ class Window(tk.Frame):
 
         self.root       .protocol("WM_DELETE_WINDOW", self.close)
         self.root       .bind('<Control-g>',self.toggleEdit)
-        self.TEXT       .bind('<ButtonRelease-1>',self.ungrab)
 
         self.TEXT       .bindtags((str(self.TEXT), "Text", "PostEvent", ".", "all")) # https://stackoverflow.com/a/50637979
         self.TEXT       .bind("<ButtonPress-2>",self.grab)
+
+        # self.TEXT       .bind('<ButtonRelease-1>',self.ungrab)
+        # self.TEXT       .bind('<ButtonRelease-2>',self.ungrab)
 
         self.EVENTSINK  .bind('<ButtonRelease-1>',self.ungrab)
         self.EVENTSINK  .bind("<ButtonRelease-2>",self.ungrab)
