@@ -1,5 +1,4 @@
 #!/bin/env python
-#!/bin/env python
 import tkinter as tk
 import signal
 
