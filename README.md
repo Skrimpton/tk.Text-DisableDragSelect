@@ -18,7 +18,7 @@ It cannot be released after Tk() destruction[³](https://github.com/Skrimpton/tk
 So for some delusion of safety I bind both ```protocol("WM_DELETE_WINDOW")```
 <br>and ```::SIGINT::``` to at least make sure ```grab_release``` is called/requested on user-interraction before exiting
 
-I did experience once, on Linux - during testing, that left-clicks were not going through on anything in the KDE 5.27 panel or default-startmenu[⁴](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---kickoff)
+I did experience once, on Linux - during testing, that left-clicks were not going through on anything in the KDE 5.27 panel or default application launcher (start-menu) [⁴](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---kickoff)
 
 In Kate[⁵](https://github.com/Skrimpton/tk.Text-DisableDragSelect/main/README.md#---kde-text-editoride) clicks where partially going through[⁶](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---not-on-all-gui-elements-but-did-move-text-cursor-position-if-i-recall-correctly), but scrolling was not happening.
 
