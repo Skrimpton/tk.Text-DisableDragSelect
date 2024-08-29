@@ -1,5 +1,5 @@
 # COMMENT
-This principle also works if you skip the main tkinter.Frame a.k.a. "class Window"[¹](https://github.com/Skrimpton/tk.Text-DisableDragSelect/edit/main/README.md#---or-window-among-friends)
+This principle also works if you skip the main tkinter.Frame a.k.a. "class Window"[¹](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---or-window-among-friends)
 <br>and e.g. add both text and EVENTSINK as children of root.
 
 Using grab_set we can unfocus the text-widget and pass all events to the grabbed object
