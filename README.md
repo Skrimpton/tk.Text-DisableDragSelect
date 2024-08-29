@@ -11,7 +11,7 @@ Using grab_set we can unfocus the text-widget and pass all events to the grabbed
 A caveat of ```grab_set``` is that the object being grabbed has to be registered as visible, simply existing is not enough for tkinter
 <br>so it needs to be placed, packed or begriddled[²](https://github.com/Skrimpton/tkinter.Text-DisableDragSelect/blob/main/README.md#---geometry-managed-using-the-grid-method)
 
-```grab_set``` effects window manager behaviour in that mouse and keyboard events are handled and redirecred, potentially on a "global"-scale.
+```grab_set``` effects window manager behaviour in that mouse and keyboard events are handled and redirecred, potentially on a "global" scale.
 
 It cannot be unset after tk() destruction[³](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---obviously-why-did-i-even-try)
 
