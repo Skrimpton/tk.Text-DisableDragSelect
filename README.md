@@ -51,7 +51,9 @@ Point being: *something* happend which affected xorg, and did so in a way that `
 
 ##### ⁸)   In all fairness: it's mainly the horrible software[ᵃ](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#%E1%B5%83---macro-functionality-as-an-optional-downloadable-plugin-prone-to-crashing--the-mouse-has-12-side-buttons-all-prebound-to-numbers-and-2-extra-top-buttons-bound-to-nothing--and-do-not-get-me-started-on-the-fact-that-they-want-me-to-create-and-log-into-an-account--to-unlock-all-features-of-my-mouse-driver-software), the mouse is decent hardware
 
-##### ᵃ)   Macro-functionality as an optional downloadable plugin (prone to crashing)?<br>  The mouse has 12 side-buttons all prebound to numbers and 2 extra top buttons bound to nothing...<br>  And do not get me started on the fact that they want me to create and log into an account<br>  to "unlock all features" of my mouse-driver-software...!
+##### ᵃ)   Macro-functionality as an optional downloadable plugin (prone to crashing)?<br>  The mouse has 12 side-buttons all prebound to numbers and 2 extra top buttons bound to nothing...<br>  And do not get me started on the fact that they want me to create and log into an account<br>  to "unlock all features" of my mouse-driver-software!
+
+Anyways, here is the code:
 
 
 # CODE
