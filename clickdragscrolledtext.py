@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-
-##!/bin/env python
+#!/bin/env python
 import tkinter as tk
 # from tkinter import ttk
 import signal
@@ -212,16 +210,22 @@ class Window(tk.Frame):
         self.root       .protocol("WM_DELETE_WINDOW", self.close)
         self.root       .bind('<Control-g>',self.toggleEdit)
         self.TEXT       .bind('<ButtonRelease-1>',self.ungrab)
-        # self.TEXT     .bind('<Shift-Button-1>',self.ungrab)
-        self.EVENTSINK  .bind('<ButtonRelease-1>',self.ungrab)
+
         self.TEXT       .bindtags((str(self.TEXT), "Text", "PostEvent", ".", "all")) # https://stackoverflow.com/a/50637979
+        self.TEXT       .bind("<ButtonPress-2>",self.grab)
+
+        self.EVENTSINK  .bind('<ButtonRelease-1>',self.ungrab)
+        self.EVENTSINK  .bind("<ButtonRelease-2>",self.ungrab)
 
         if self.allowClicks.get():
             self.TEXT   .bind_class("PostEvent", "<ButtonPress-1>", self.onClicked)
         else:
             self.TEXT   .bind("<ButtonPress-1>", lambda e:self.onClicked(e,"clickguard"))
 
-    def onEVENTSINKmotion(self,e):
+    def onEVENTSINK_DISABLE_DRAG_SELECT(self,e):
+        return 'break'
+
+    def onEVENTSINK_CLICK_DRAG_SCROLL(self,e):
         if self.grabbed == True:
             # self.TEXT.scan_dragto(e.x,e.y)
             self.TEXT.tk.call( self.TEXT._w ,'scan' ,'dragto'
@@ -234,7 +238,7 @@ class Window(tk.Frame):
             self.TEXT.unbind('<ButtonPress-1>')
             self.TEXT.bind_class("PostEvent", "<ButtonPress-1>", self.onClicked)
         else:
-            self.TEXT.bind_class("PostEvent", "<ButtonPress-1>",'')
+            self.TEXT.bind_class("PostEvent", "<ButtonPress-1>",lambda e:self.onClicked(e,"clickguard"))
             self.TEXT.bind("<ButtonPress-1>", lambda e:self.onClicked(e,"clickguard"))
 
     def toggleEdit(self,*e):
@@ -253,18 +257,23 @@ class Window(tk.Frame):
 
 
     def onClicked(self,e,clickguard=None):
-        self.grab(e)
         if clickguard == "clickguard" or clickguard is True:
+
+            if not self.grabbed:
+                self.grabbed = True
+                self.EVENTSINK.grab_set()
+                # if self.clickDragScroll.get():
+                self.EVENTSINK.bind('<Motion>',self.onEVENTSINK_DISABLE_DRAG_SELECT)
             return 'break'
 
     def grab(self,e):
 
-        if not self.grabbed and self.pause_grab is None:
+        if not self.grabbed:
             self.grabbed = True
             self.EVENTSINK.grab_set()
             if self.clickDragScroll.get():
                 self.TEXT.scan_mark(e.x,e.y)
-                self.EVENTSINK.bind('<Motion>',self.onEVENTSINKmotion)
+                self.EVENTSINK.bind('<Motion>',self.onEVENTSINK_CLICK_DRAG_SCROLL)
 
         return 'break'
 
@@ -273,10 +282,6 @@ class Window(tk.Frame):
         if self.clickDragScroll.get():
             self.EVENTSINK.unbind('<Motion>')
         self.grabbed = False
-        # self.pause_grab = self.root.after(100,self.unpause_grab)
-
-    def unpause_grab(self,*e):
-        self.pause_grab = None
 
     def close(self):
         self.EVENTSINK.grab_release()
