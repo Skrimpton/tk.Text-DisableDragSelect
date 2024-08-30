@@ -1,4 +1,6 @@
 # COMMENT
+
+## DISCLAIMER: Realize I should clarify that this is just an example of a use-case for for grab_set(). Less fun, but simpler solution follows CODE-segment
 This principle also works if you skip the main tkinter.Frame a.k.a. "class Window"[¹](https://github.com/Skrimpton/tk.Text-DisableDragSelect/blob/main/README.md#---or-window-among-friends)
 <br>and e.g. add both text and EVENTSINK as children of root.
 
